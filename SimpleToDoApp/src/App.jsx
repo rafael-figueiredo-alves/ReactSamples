@@ -1,7 +1,8 @@
-import { NavBar } from './shared/NavBar'
+import { NavBar } from './shared/NavBar';
 import { Home } from './pages/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { About } from './pages/About';
+import { NewTask } from './pages/NewTask';
 
 function App() {
 
@@ -17,7 +18,7 @@ function App() {
               <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/sobre' element={<About />} />
-                <Route path='/newtask' element={<p>NewTask</p>} />
+                <Route path='/newtask' element={<NewTask />} />
               </Routes>
             </Router>
           </article>
