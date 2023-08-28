@@ -3,6 +3,7 @@ import { Home } from './pages/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { About } from './pages/About';
 import { NewTask } from './pages/NewTask';
+import { EditTask } from './pages/EditTask';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
                 <Route path='/' element={<Home />} />
                 <Route path='/sobre' element={<About />} />
                 <Route path='/newtask' element={<NewTask />} />
+                <Route path='/edittask/:id' element={<EditTask />} />
               </Routes>
             </Router>
           </article>

@@ -1,4 +1,7 @@
+import { useState } from "react"
+
 export const Formulario = () => {
+    const [QtdCaracteres, SetQtdCaracteres] = useState(0); 
     return(
         <>
 
@@ -12,8 +15,8 @@ export const Formulario = () => {
             <div className="form-group">
                 <label form="Tarefa">Descrição: </label>
                 <div>
-                    <textarea className="form-control" />
-                    <small id="edescricaoHelp" className="form-text text-muted">@QtdCaracteres / 250 caracteres digitados.</small>
+                    <textarea className="form-control" onInput={(e) => SetQtdCaracteres(e.target.value.length)} maxLength="250" />
+                    <small id="edescricaoHelp" className="form-text text-muted">{QtdCaracteres} / 250 caracteres digitados.</small>
                 </div>
             </div>
 
