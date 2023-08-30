@@ -4,7 +4,7 @@ import { tarefas } from "../Entities/Tarefa"
 import { Msg } from "../shared/Msg";
 
 export const Home = () => {
-    const Lista = tarefas;
+    const Lista = tarefas
     return (
         <>
             <div className="container-fluid">
@@ -44,7 +44,7 @@ export const Home = () => {
                                         <td class="d-none d-md-table-cell col-6 align-middle">{item.descricao}</td>
                                         <td class="col-2">
                                             <div class="d-inline align-content-end">
-                                                <a class="btn btn-primary m-1" href={`edittask/${item.id}`}><span class="oi oi-pencil" /></a>
+                                                <a class="btn btn-primary m-1" href={`/edittask/${item.id}`}><span class="oi oi-pencil" /></a>
                                                 <a class="btn btn-danger m-1"><span class="oi oi-trash" /></a>
                                             </div>
                                         </td>

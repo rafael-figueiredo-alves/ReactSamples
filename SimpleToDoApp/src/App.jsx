@@ -17,10 +17,10 @@ function App() {
           <article className="content px-4">
             <Router>
               <Routes>
+                <Route path='sobre' element={<About />} />
+                <Route path='newtask' element={<NewTask />} />
+                <Route path='edittask/:id' element={<EditTask />} />
                 <Route path='/' element={<Home />} />
-                <Route path='/sobre' element={<About />} />
-                <Route path='/newtask' element={<NewTask />} />
-                <Route path='/edittask/:id' element={<EditTask />} />
               </Routes>
             </Router>
           </article>

@@ -6,9 +6,9 @@ export class Tarefas
     Dados;
     _tarefas;
 
-    async LerBD()
+    static async LerBD()
     {
-        Dados = await localStorage.getItem(this.DBKey);
+        return await localStorage.getItem(this.DBKey);
     }
 
     async GravarBD()
