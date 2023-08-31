@@ -8,7 +8,7 @@ export const Msg = (props) => {
          <>
             <div className="modal-backdrop show"></div>
 
-            <div className="modal" tabindex="-1" role="dialog"
+            <div className="modal" tabIndex="-1" role="dialog"
                 aria-hidden="true" style={{ display: 'block' }}>
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
@@ -19,10 +19,10 @@ export const Msg = (props) => {
                                 <span aria-hidden="true"></span>
                             </button>
                         </div>
-                        <div class="modal-body">
+                        <div className="modal-body">
                             {props.children}
                         </div>
-                        <div class="modal-footer">
+                        <div className="modal-footer">
                             <button type="button" className="btn btn-danger" onClick={() => SetExibir(false)}
                                 data-dismiss="modal">
                                 Não

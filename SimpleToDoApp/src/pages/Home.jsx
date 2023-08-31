@@ -2,9 +2,21 @@ import { SearchInput } from "../shared/SearchInput";
 import { Paginacao } from "../shared/Paginacao";
 import { tarefas } from "../Entities/Tarefa"
 import { Msg } from "../shared/Msg";
+import { useEffect, useState } from "react";
+import { Tarefas } from "../services/Tarefas"
 
 export const Home = () => {
-    const Lista = tarefas
+    const [Lista, SetLista] = useState([]);
+
+    useEffect(() => {
+        const ListaTarefas = Tarefas.Iniciar().LerBD();
+
+        if(ListaTarefas != null)
+        {
+            SetLista(ListaTarefas);
+        }
+    }, [Lista])
+
     return (
         <>
             <div className="container-fluid">
@@ -39,13 +51,14 @@ export const Home = () => {
                             <tbody>
                                 {Lista.map((item) =>
                                     <tr>
-                                        <th scope="col" class="col-1 align-middle"><input class="form-check-input" type="checkbox" id="flexCheckDefault" checked={item.feito} /></th>
-                                        <td class="col-3 align-middle">{item.tarefa}</td>
-                                        <td class="d-none d-md-table-cell col-6 align-middle">{item.descricao}</td>
-                                        <td class="col-2">
-                                            <div class="d-inline align-content-end">
-                                                <a class="btn btn-primary m-1" href={`/edittask/${item.id}`}><span class="oi oi-pencil" /></a>
-                                                <a class="btn btn-danger m-1"><span class="oi oi-trash" /></a>
+                                        <th id={item.id} />
+                                        <th scope="col" class="col-1 align-middle"><input className="form-check-input" type="checkbox" id="flexCheckDefault" checked={item.feito} /></th>
+                                        <td className="col-3 align-middle">{item.tarefa}</td>
+                                        <td className="d-none d-md-table-cell col-6 align-middle">{item.descricao}</td>
+                                        <td className="col-2">
+                                            <div className="d-inline align-content-end">
+                                                <a className="btn btn-primary m-1" href={`/edittask/${item.id}`}><span className="oi oi-pencil" /></a>
+                                                <a className="btn btn-danger m-1"><span className="oi oi-trash" /></a>
                                             </div>
                                         </td>
                                     </tr>

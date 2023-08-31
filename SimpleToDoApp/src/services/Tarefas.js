@@ -1,18 +1,28 @@
 export class Tarefas
 {
-    QtdTarefasPorPagina = 5;
-    DBKey = 'JSSimpleToDOAppBD';
+    static instancia;
 
-    Dados;
-    _tarefas;
-
-    static async LerBD()
+    static Iniciar()
     {
-        return await localStorage.getItem(this.DBKey);
+        if(this.instancia == null)
+        {
+            this.instancia = new Tarefas();
+        }
+        return this.instancia;
     }
 
-    async GravarBD()
+    QtdTarefasPorPagina = 5;
+    DBKey = "JSSimpleToDOAppBD";
+
+    Dados;
+
+    LerBD()
     {
-        await localStorage.setItem(this.DBKey, this._tarefas);
+        return JSON.parse(localStorage.getItem(this.DBKey));
+    }
+
+    GravarBD()
+    {
+        localStorage.setItem(this.DBKey, this._tarefas);
     }
 }
