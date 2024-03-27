@@ -1,21 +1,23 @@
-// export class Tarefa{
-//     constructor(_tarefa, _desc){
-//         this.id = create_GUID();
-//         this.tarefa = _tarefa;
-//         this.descricao = _desc;
-//         this.feito = false;
-//     }
+const Tarefa = () => {
+    constructor(_tarefa, _desc){
+        this.id = create_GUID();
+        this.tarefa = _tarefa;
+        this.descricao = _desc;
+        this.feito = false;
+    }
 
-//     #S4() {
-//         return (((1+Math.random())*0x10000)|0).toString(16).substring(1); 
-//     }
+    #S4() {
+        return (((1+Math.random())*0x10000)|0).toString(16).substring(1); 
+    }
     
-//     #create_GUID(){
-//         return (S4() + S4() + "-" + S4() + "-4" + S4().substr(0,3) + "-" + S4() + "-" + S4() + S4() + S4()).toLowerCase();
-//     }
-// }
+    #create_GUID(){
+        return (S4() + S4() + "-" + S4() + "-4" + S4().substr(0,3) + "-" + S4() + "-" + S4() + S4() + S4()).toLowerCase();
+    }
+}
 
-export const tarefas = 
+export default Tarefa
+
+/* export const tarefas = 
 [
     {
       "id": "7f156055-aa04-49db-9a8e-4e24372631ba",
@@ -101,4 +103,4 @@ export const tarefas =
       "descricao": "p",
       "feito": false
     }
-  ];
+  ]; */

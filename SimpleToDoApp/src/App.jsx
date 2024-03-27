@@ -1,13 +1,7 @@
 import { NavBar } from './shared/NavBar';
-import { Home } from './pages/Home';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { About } from './pages/About';
-import { NewTask } from './pages/NewTask';
-import { EditTask } from './pages/EditTask';
+import { Outlet } from 'react-router-dom';
 
-function App() {
-
-
+export const App = () => {
   return (
     <>
       <div className="page">
@@ -15,19 +9,10 @@ function App() {
           <NavBar />
 
           <article className="content px-4">
-            <Router>
-              <Routes>
-                <Route path='sobre' element={<About />} />
-                <Route path='newtask' element={<NewTask />} />
-                <Route path='edittask/:id' element={<EditTask />} />
-                <Route path='/' element={<Home />} />
-              </Routes>
-            </Router>
+            <Outlet />
           </article>
         </main>
       </div>
     </>
   )
-}
-
-export default App
+};

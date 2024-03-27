@@ -7,15 +7,15 @@ export function NavBar(){
      <>
             <nav className="navbar sticky-top bg-light ms-auto mb-2 mb-lg-0">
                 <div className="container-fluid m-1 shadow">
-                    <a className="navbar-brand" href="/"><span className="oi oi-task" /> Simple To-DO App</a>
+                    <NavLink className="navbar-brand" to="/"><span className="oi oi-task" /> Simple To-DO App</NavLink>
                     <div className="d-flex justify-content-end">
                         <div className="m-1">
-                            <a className="btn btn-success d-none d-sm-inline" href="/newtask" style={{ width: '140px' }}><span className="oi oi-plus" />  Nova Tarefa</a>
-                            <a className="btn btn-success d-sm-none rounded-circle" href="/newtask"><span className="oi oi-plus" /></a>
+                            <NavLink className="btn btn-success d-none d-sm-inline" to="/newtask" style={{ width: '140px' }}><span className="oi oi-plus" />  Nova Tarefa</NavLink>
+                            <NavLink className="btn btn-success d-sm-none rounded-circle" to="/newtask"><span className="oi oi-plus" /></NavLink>
                         </div>
                         <div className="m-1">
-                            <a className="btn btn-primary d-none d-sm-inline" href="/sobre" style={{ width: '140px' }}><span className="oi oi-question-mark" />  Sobre</a>
-                            <a className="btn btn-primary d-sm-none rounded-circle" href="/sobre"><span className="oi oi-question-mark" /></a>
+                            <NavLink className="btn btn-primary d-none d-sm-inline" to="/sobre" style={{ width: '140px' }}><span className="oi oi-question-mark" />  Sobre</NavLink>
+                            <NavLink className="btn btn-primary d-sm-none rounded-circle" to="/sobre"><span className="oi oi-question-mark" /></NavLink>
                         </div>
                     </div>
                 </div>
