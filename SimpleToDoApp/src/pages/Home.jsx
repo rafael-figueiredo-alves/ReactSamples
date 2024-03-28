@@ -1,20 +1,13 @@
 import { SearchInput } from "../shared/SearchInput";
 import { Paginacao } from "../shared/Paginacao";
-import { tarefas } from "../Entities/Tarefa"
 import { Msg } from "../shared/Msg";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { TasksContext } from "../Context/TasksContext";
+import { NavLink } from "react-router-dom";
 //import { Tarefas } from "../services/Tarefas"
 
 export const Home = () => {
-    const [Lista, SetLista] = useState([]);
-
-    useEffect(() => {
-        const ListaTarefas = tarefas;
-        if(ListaTarefas != null)
-        {
-            SetLista(ListaTarefas);
-        }
-    }, [Lista])
+    const { Tasks, RemoveTask } = useContext(TasksContext);
 
     return (
         <>
@@ -31,11 +24,14 @@ export const Home = () => {
             </div>
 
             <hr />
-            {
-                Lista == null ?
+            {Tasks.map((item) =>
+                <p key={item.id}>{item.id}</p>
+            )}
+            {/* {
+                Tasks == null ?
                     <p>Carregando tarefas...</p>
                     :
-                    Lista.length <= 0 ?
+                    (Tasks.length <= 0 ?
                         <p>Sem tarefas</p>
                         :
                         <table className="table table-hover">
@@ -48,23 +44,23 @@ export const Home = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {Lista.map((item) =>
-                                    <tr>
-                                        <td scope="col" class="col-1 align-middle"><input className="form-check-input" type="checkbox" id="flexCheckDefault" checked={item.feito} /></td>
+                                {Tasks.map((item) =>
+                                    <tr key={item.id}>
+                                        <td scope="col" className="col-1 align-middle"><input className="form-check-input" type="checkbox" id="flexCheckDefault" defaultChecked={item.feito} /></td>
                                         <td className="col-3 align-middle">{item.tarefa}</td>
                                         <td className="d-none d-md-table-cell col-6 align-middle">{item.descricao}</td>
                                         <td className="col-2">
                                             <div className="d-inline align-content-end">
-                                                <a className="btn btn-primary m-1" href={`/edittask/${item.id}`}><span className="oi oi-pencil" /></a>
-                                                <a className="btn btn-danger m-1"><span className="oi oi-trash" /></a>
+                                                <NavLink className="btn btn-primary m-1" to={`/edittask/${item.id}`}><span className="oi oi-pencil" /></NavLink>
+                                                <a className="btn btn-danger m-1" onClick={RemoveTask(item.id)}><span className="oi oi-trash" /></a>
                                             </div>
                                         </td>
                                     </tr>
 
                                 )}
                             </tbody>
-                        </table >
-            }
+                        </table >)
+            } */}
         </>
     )
 };           

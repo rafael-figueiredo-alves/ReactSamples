@@ -1,9 +1,17 @@
-const Tarefa = () => {
-    constructor(_tarefa, _desc){
-        this.id = create_GUID();
-        this.tarefa = _tarefa;
-        this.descricao = _desc;
-        this.feito = false;
+class Tarefa {
+
+
+    constructor(){
+
+    }
+
+    static NewTask(_tarefa, _desc){
+      const Task = new Tarefa();
+      Task.id = create_GUID();
+      Task.tarefa = _tarefa;
+      Task.descricao = _desc;
+      Task.feito = false;
+      return Task;
     }
 
     #S4() {

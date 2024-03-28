@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export const Formulario = () => {
+export const Formulario = (props) => {
     const [QtdCaracteres, SetQtdCaracteres] = useState(0); 
     return(
         <>

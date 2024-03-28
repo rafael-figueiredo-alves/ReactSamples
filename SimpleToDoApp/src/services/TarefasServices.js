@@ -1,10 +1,18 @@
+import Tarefa from "../Entities/Tarefa";
+
 const DBKey = "JSSimpleToDOAppBD";
 
 
 export const LerBD = () => {
-        return JSON.parse(localStorage.getItem(this.DBKey)) || [];
+        const data = localStorage.getItem(DBKey) || '';
+        try {
+             const result = JSON.parse(data);
+             return result;
+        } catch {
+            return [];
+        }
 }
 
-export const GravarBD = () => {
-        localStorage.setItem(this.DBKey, this._tarefas);
+export const GravarBD = (tarefas) => {
+        localStorage.setItem(DBKey, JSON.stringify(tarefas));
 }
