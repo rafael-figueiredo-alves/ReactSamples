@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 //import { Tarefas } from "../services/Tarefas"
 
 export const Home = () => {
-    const { Tasks, RemoveTask } = useContext(TasksContext);
+    const { Tasks, RemoveTask, toggleTask } = useContext(TasksContext);
 
     return (
         <>
@@ -24,14 +24,8 @@ export const Home = () => {
             </div>
 
             <hr />
-            {Tasks.map((item) =>
-                <p key={item.id}>{item.id}</p>
-            )}
-            {/* {
-                Tasks == null ?
-                    <p>Carregando tarefas...</p>
-                    :
-                    (Tasks.length <= 0 ?
+            {
+                    Tasks !== null && Tasks.length <= 0 ?
                         <p>Sem tarefas</p>
                         :
                         <table className="table table-hover">
@@ -46,7 +40,7 @@ export const Home = () => {
                             <tbody>
                                 {Tasks.map((item) =>
                                     <tr key={item.id}>
-                                        <td scope="col" className="col-1 align-middle"><input className="form-check-input" type="checkbox" id="flexCheckDefault" defaultChecked={item.feito} /></td>
+                                        <td scope="col" className="col-1 align-middle"><input className="form-check-input" type="checkbox" id="flexCheckDefault" defaultChecked={item.feito} onChange={toggleTask(item)} /></td>
                                         <td className="col-3 align-middle">{item.tarefa}</td>
                                         <td className="d-none d-md-table-cell col-6 align-middle">{item.descricao}</td>
                                         <td className="col-2">
@@ -59,8 +53,8 @@ export const Home = () => {
 
                                 )}
                             </tbody>
-                        </table >)
-            } */}
+                        </table >
+            }
         </>
     )
 };           

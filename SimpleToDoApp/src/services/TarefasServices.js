@@ -1,5 +1,3 @@
-import Tarefa from "../Entities/Tarefa";
-
 const DBKey = "JSSimpleToDOAppBD";
 
 
@@ -7,9 +5,19 @@ export const LerBD = () => {
         const data = localStorage.getItem(DBKey) || '';
         try {
              const result = JSON.parse(data);
-             return result;
+             return [{
+                "id": "7f156055-aa04-49db-9a8e-4e24372631ba",
+                "tarefa": "Organizar a gaveta",
+                "descricao": "Organizar a gaveta da mesa do escritório",
+                "feito": true
+              }];
         } catch {
-            return [];
+            return [{
+                "id": "7f156055-aa04-49db-9a8e-4e24372631ba",
+                "tarefa": "Organizar a gaveta",
+                "descricao": "Organizar a gaveta da mesa do escritório",
+                "feito": true
+              }];
         }
 }
 

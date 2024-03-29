@@ -4,20 +4,18 @@ import Tarefa from "../Entities/Tarefa";
 
 export const TasksContext = createContext(
     {
-        Tasks: [],
-        AddTask: () => {},
-        RemoveTask: () => {},
-        ToggleTask: () => {},
-        UpdateTask: () => {}
+        Tasks: LerBD(),
+        AddTask: (tarefa,descricao) => {},
+        RemoveTask: (id) => {},
+        UpdateTask: (tarefa) => {},
+        toggleTask: (task) => {},
     }
 );
 
 export const TasksProvider = (props) => {
-    const [Tasks, setTasks] = useState(() => LerBD());
+    const [Tasks, setTasks] = useState(LerBD);
 
-/*     useEffect(() => {
-        GravarBD(Tasks);
-    }, [Tasks]) */
+    useEffect(() => GravarBD(Tasks), [Tasks])
 
     const AddTask = (tarefa, descricao) => {
         const new_task = Tarefa.NewTask(tarefa, descricao)
@@ -33,14 +31,14 @@ export const TasksProvider = (props) => {
        const index = Tasks.indexOf(task);
        Tasks[index].tarefa = tarefa.tarefa;
        Task[index].descricao = tarefa.descricao;
-       Task[index].feito = tarefa.feito;
+       //Task[index].feito = tarefa.feito;
        setTasks([...Tasks]);
     }
 
     const toggleTask = (task) => {
         const index = Tasks.indexOf(task);
         Tasks[index].feito = !task.feito;
-        setTodos([...todos]);
+        setTasks([...Tasks]);
     }
 
     return <TasksContext.Provider value={{Tasks, AddTask, RemoveTask, toggleTask, UpdateTask}}>{props.children}</TasksContext.Provider>;
